@@ -1,0 +1,7 @@
+OS/file1.txt has some data.
+current file is OS/file2.txt
+OS/file2.txt has some data.
+current file is OS/file3.txt
+OS/file3.txt has some data.
+current file is OS/file4.txt
+OS/file4.txt is empty.

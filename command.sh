@@ -31,7 +31,7 @@ do
 
   case $INPUT_STRING in
 	1)
-		printf "${RED}A)${NC}${BLUE} How many CPU and cores does the machine have?${NC}\n"
+    printf "${RED}A)${NC}${BLUE} How many CPU and cores does the machine have?${NC}\n"
     printf "${GREEN}Answer: ${NC}\n"
 
     printf "${GREEN}Command Used: cat /proc/cpuinfo | grep processor | wc -l && grep ^cpu\\scores /proc/cpuinfo | uniq |  awk '{print \$4}'\n"
@@ -86,7 +86,7 @@ do
 
     printf "${BLUE}"
     awk '{for(i = 1; i <= NF; i++) {a[$i]++}} END {for(k in a) if(a[k] == 1){counter++} print "Unique words are: "counter}' welcome.txt
-    printf "${NC}"
+    printf "${NC}\n"
 
     printf "${RED}B.)${NC}${BLUE} The word which is present for maximum number of times in the file.  ${NC}\n"
     printf "${GREEN}Answer: ${NC}\n"
@@ -96,9 +96,8 @@ do
     max = a[k]
     word = k
     } print "Maximum occured word in file: "word}' welcome.txt
-    printf "${NC}"
-
-		;;
+    printf "${NC}\n"
+    ;;
   3)
 		printf "${RED}Question: ${NC}${GREEN}Suppose you have a fibonacci sequence of length n, where n is a positive integer and
 multiple of 3. Now you decide to cut down the sequence in three equal segments and do
@@ -111,7 +110,6 @@ procedures. Display the results after each step. ${YELLOW}\n\n"
 
     declare -a array_main
     declare -a array_sum
-    declare -a array_right
 
     printf "Enter sequence: \n"
 
@@ -127,23 +125,63 @@ procedures. Display the results after each step. ${YELLOW}\n\n"
     do
         sum=$(( ${array_main[$c]}+${array_main[$num -1 -$c]} ))
         array_main[$c]="$sum"
-
-        echo ${array_main[$c]}
     done
 
-    printf "${GREEN}Answer:\n"
-    for(( c = 0 ; c < 6 ; c++))
+    printf "${GREEN}\nAnswer:\n${BLUE}"
+    for(( c = 0 ; c < 2*$NUM/3 ; c++))
     do
         printf "${array_main[$c]} "
     done
-    printf "${NC}"
-		;;
+    printf "${NC}\n"
+    ;;
   4)
-		echo "See you again!"
+
+	printf "${RED}Question: ${NC}${GREEN}A folder named OS contains four non-empty and one empty text files. Each of the
+non-empty files contains different number of sentences. Write a program in shell script to
+copy the first sentence from each non-empty file to the empty file. The sentences should
+be placed based on the ascending order of the size of the non-empty files. ${YELLOW}\n\n"
+printf "${GREEN}Answer: ${NC}\n"
+
+    declare -a arr
+
+	for fname in OS/*.txt ; do
+  	_file="$fname"
+
+		if [ -s "$_file" ]
+  	then
+		line=$(head -n 1 $fname)
+    	filesize=$(stat -c%s "$fname")
+
+	arr[$filesize]="$filesize $line"
+
+  	else
+
+		emptyFile=$_file
+
+		fi
+		done
+
+		if [ -s $emptyFile ]
+		 then
+			printf "${RED}No Empty file found.\nFailed.${NC}"
+		 else
+		 printf "${RED}Empty file: ${NC}${emptyFile}\n"
+		 printf "${BLUE} Writing data to file ${NC} \n"
+
+			for key in ${!arr[@]}; do
+				echo ${arr[${key}]}>>$emptyFile
+			done
+
+            sort $emptyFile
+
+			printf "${GREEN}Done!${NC}"
+
+		fi
 		;;
-	*)
-		echo "Not found."
-		;;
+
+		*)
+    echo "Command Not found."
+    ;;
   esac
 done
 echo
