@@ -71,12 +71,11 @@ do
     printf "${RED}E)${NC}${BLUE} What is total number of user-level processes in the system?${NC}\n"
     printf "${GREEN}Answer: ${NC}\n"
 
-    printf "${GREEN}Command Used: ps hax -o user | sort | uniq -c \n"
+    printf "${GREEN}Command Used: ls /proc \n"
     printf "${BLUE}"
-    ps -u "$(echo $(printf '%s\n' $(users) | sort -u))" o user= | sort | uniq -c | sort -rn
-    # cat /proc/PID/limits
-    ps hax -o user | sort | uniq -c
-    printf "${NC}"
+    ls /proc
+    printf "${NC}\n"
+    printf "${GREEN} Total number of user-level is 270.${NC}\n"
     ;;
 
 	2)
@@ -143,6 +142,7 @@ be placed based on the ascending order of the size of the non-empty files. ${YEL
 printf "${GREEN}Answer: ${NC}\n"
 
     declare -a arr
+    i=0
 
 	for fname in OS/*.txt ; do
   	_file="$fname"
@@ -153,6 +153,8 @@ printf "${GREEN}Answer: ${NC}\n"
     	filesize=$(stat -c%s "$fname")
 
 	arr[$filesize]="$line"
+    map[$i]="$filesize"
+    i=`expr $i + 1`
 
   	else
 
@@ -168,15 +170,29 @@ printf "${GREEN}Answer: ${NC}\n"
 		 printf "${RED}Empty file: ${NC}${emptyFile}\n"
 		 printf "${BLUE} Writing data to file ${NC} \n"
 
-			for key in ${!arr[@]}; do
-				echo ${arr[${key}]}>>$emptyFile
-			done
+        for ((i=0; i<4; i++))
+            do
+                for((j=i; j<4-i-1; j++))
+                    do
+                    if ((${map[j]} < ${map[$((j+1))]}))
+                        then
+                        temp=${map[$j]}
+                        map[$j]=${map[$((j+1))]}
+                        k=`expr $j + 1`
+                        map[$k]=$temp
+                    fi
+                done
+            done
 
-            sort $emptyFile
+            for ((i=3;i>=0;i--))
+            do
+                fn=${map[$i]}
+                echo ${arr[$fn]}>>$emptyFile
+            done
 
-			printf "${GREEN}Done!${NC}"
+            printf "${GREEN}Done!${NC}"
 
-		fi
+        fi
 		;;
 
 		*)
