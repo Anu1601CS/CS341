@@ -14,6 +14,8 @@ export RED GREEN YELLOW BLUE NC
 
 printf "${RED}==========================================${NC}\n"
 printf "${GREEN}CS341 Lab 1${NC}\n"
+printf "${GREEN}\nName: Anurag${NC}\n"
+printf "${GREEN}\nRoll no: 1601CS05${NC}\n"
 printf "${RED}==========================================${NC}\n"
 
 printf "${BLUE}Please select question no.${NC}\n"
