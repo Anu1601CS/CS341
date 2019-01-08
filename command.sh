@@ -152,7 +152,7 @@ printf "${GREEN}Answer: ${NC}\n"
 		line=$(head -n 1 $fname)
     	filesize=$(stat -c%s "$fname")
 
-	arr[$filesize]="$filesize $line"
+	arr[$filesize]="$line"
 
   	else
 

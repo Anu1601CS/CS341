@@ -1,3 +1,6 @@
+4 asd
+7 asdasd
+15 asdasdasdadasd
 146 OS/file1.txt has some data.
 174 OS/file1.txt has some data.
 194 OS/file1.txt has some data.
