@@ -1,0 +1,2 @@
+In this question i used fork function System call fork() is used to create processes. The i checked wether its child or system process. If 0 the child else system.
+Then i used getpid() function to get the process id and getppid() to get the parent process id.

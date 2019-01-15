@@ -1,0 +1,1 @@
+In this question i used system call to call the command. sed to replace and cat to print in new file.

@@ -1,0 +1,26 @@
+  PID TTY          TIME CMD
+10852 pts/0    00:00:00 bash
+11671 pts/0    00:00:00 a.out
+11673 pts/0    00:00:00 a.out
+11674 pts/0    00:00:00 sh
+11675 pts/0    00:00:00 ps
+Enter sleep time t: 
+
+Child: pid = 11673
+Starting the child process.
+
+Child: List of system process:
+Exiting the child process. (Die)
+  PID TTY          TIME CMD
+10852 pts/0    00:00:00 bash
+11671 pts/0    00:00:00 a.out
+11676 pts/0    00:00:00 sh
+11677 pts/0    00:00:00 ps
+Enter sleep time t: 
+Waiting for child process to die.
+
+Parent: List of system process:
+
+Parent: pid = 11671
+
+Exiting the parent process. (Die)

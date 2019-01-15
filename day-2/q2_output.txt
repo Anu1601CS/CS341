@@ -1,0 +1,4 @@
+Enter an n: 4
+Before Parent --> pid = 11446
+After Parent --> pid = 11446 and factorial = 24
+After Child --> pid = 11447 and factorial = 24

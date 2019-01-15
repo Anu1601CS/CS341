@@ -1,0 +1,6 @@
+Before fork value of global : 0
+After fork value of global : 4
+Parent: pid = 11526
+Before fork value of global : 0
+After fork value of global : 3
+Child: pid = 11527

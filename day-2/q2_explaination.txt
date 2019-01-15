@@ -1,0 +1,5 @@
+In this question i am reading the n from user then printing the parent process id.
+Then called the Factorial function after and before fork . Then i checked wether its child or system process. If 0 the child else system.
+Then i used getpid() function to get the process id.
+
+

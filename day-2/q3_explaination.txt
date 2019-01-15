@@ -1,0 +1,2 @@
+In this question i am declearing the global variable globalX  to 0. \
+Then i am modify the value of globalX in the child and the parent process. But its changes is limited in the child and parent process scope.

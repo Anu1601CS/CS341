@@ -1,0 +1,2 @@
+In this question i am reading the time t then make it sleep for t time. Parent process wait for the child process to terminate for this i used wait(NULL)
+command. And use sysyem("ps) function to print the list of process before and after child and Parent.
