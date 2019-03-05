@@ -31,6 +31,6 @@ int main()
         printf("After fork value of global : %d\n", globalX);
         printf("Parent: pid = %d\n", getpid());
     }
-
+    
     return 0;
 }
