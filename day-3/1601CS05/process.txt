@@ -1,0 +1,11 @@
+Write a C program that takes a file named process.txt as a command line parameter and
+takes the words which are in the position multiple of 3 and stored in the file. The selected
+words are written to the display and the input file is left unchanged. Compile the C file
+into an executable named ”dstring”. Name the C file dstring.c.
+Now write a C program (pstring.c) that implements a command called ”pstring” that
+you will invoke from the shell prompt. The syntax of the command is ”pstring
+thread.txt”. When you type the command, the command opens a new xterm window
+(terminal), and then take the words which are in the position multiple of 3 stored in the
+file thread.txt using the program ”dstring”. Look up the man pages for xterm, fork and
+the different variations of exec* system calls (such as execv, execve, execlp etc.) to do
+this assignment. Submit the C files dstring.c and pstring.c. Justify the ou
